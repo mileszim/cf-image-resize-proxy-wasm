@@ -63,7 +63,7 @@ async function fetchBytes(url: string) {
 function resizeImage(imageBuffer: ArrayBuffer, newWidth: number) {
   const img = PhotonImage.new_from_byteslice(new Uint8Array(imageBuffer));
   const newHeight = Math.round(img.get_height() * (newWidth / img.get_width()));
-  const converted = resize(img, newWidth, newHeight, 1);
+  const converted = resize(img, newWidth, newHeight, 5);
 
   const base64 = converted.get_base64();
   const mime = base64.split(";")[0].replace("data:", "");
